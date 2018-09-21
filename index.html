@@ -1,0 +1,979 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <title>SILPRE</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="robots" content="index, follow" />
+    <link rel="stylesheet" href="style/css/app5e1f.css?v=2" />
+    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+window.onload = function () {
+        CanvasJS.addColorSet("greenShades",
+                [//colorSet Array
+
+                "#16fd4e",
+                "#fd5d15",
+                "#1aa0f4",
+                "#febe1c",
+                "#ff282c"                
+                ]);
+    
+      // title:{
+      //  text: "Chart Background Color"       
+        var chart = new CanvasJS.Chart("chartContainer",
+        {
+            animationEnabled: true,
+            backgroundColor: "#1f1d2f",
+            colorSet: "greenShades",
+
+    data: [{
+
+        type: "doughnut",
+        startAngle: 60,
+        //innerRadius: 60,
+        indexLabelFontSize: 17,
+        // indexLabel: "{label} - #percent%",
+         toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+        dataPoints: [
+            { y: 20, label: "" },
+            { y: 20, label: "" },
+            { y: 10, label: "" },
+            { y: 30, label: ""},
+            { y: 30, label: ""}
+        ]
+    }]
+});
+chart.render();
+
+}
+
+</script>
+
+</head>
+<body class="jackpot">
+    <!-- HEADER START -->
+    <header class="section-header blur-content">
+        <div class="col-left x-col-header-left">
+            <div class="header-left">
+                <div class="header-logo wow slideInLeft" data-wow-delay="0.1s">
+                    <a href="index.html"><img src="../i.imgur.com/uyCq3gL.png" alt=""></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-center x-col-header-center">
+            <div class="header-center">
+                <ul class="header-menu">
+                    <li class="wow fadeInDown" data-wow-delay="0.2s"><a href="index.html">JACKPOT</a></li>
+                    <li class="wow fadeInDown" data-wow-delay="0.3s"><a href="coinflip.html">COINFLIP</a></li>
+                    <li class="wow fadeInDown" data-wow-delay="0.4s"><a href="login.html">SUPPORT</a></li>
+                </ul>
+            </div>
+            <button class="hamburger hamburger--squeeze menu-toggle-button" id="menu-toggle" data-toggle="active" data-target="#menu-mobile" type="button">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+            <div class="col-right x-col-header-right">
+                <div class="header-right">
+                    <a href="javascript://" data-action="login" class="btn-steam gradient-steam wow fadeInDown" data-wow-delay="0.5s">
+                        <span>Sign in</span>
+                    </a>
+                </div>
+            </div>
+    </header>
+    <div id="menu-mobile" class="mobile-menu">
+
+        <a class="mobile-menu-logo">
+            <img src="style/img/logo.png" alt="">
+        </a>
+        <ul class="mobile-menu-list">
+            <li><a href="index.html">JACKPOT</a></li>
+            <li><a href="coinflip.html">COINFLIP</a></li>
+            <li><a href="login.html">SUPPORT</a></li>
+            <li><a href="javascript://" data-action="login">LOGIN / REGISTER</a></li>
+        </ul>
+    </div>
+    <!-- HEADER END -->
+    <div class="section-body blur-content" id="body">
+        <div class="chat-over-btn">
+            <div class="chat-header-arrow wow fadeInUp chat-open-close" data-wow-delay="0.3s">
+                <span></span>
+            </div>
+        </div>
+
+        <div class="col-left col-flex x-col-chart">
+            <div class="box-content">
+                <div class="box-header">
+                    <div class="jac-header">
+                        <div class="jac-text jac-left wow fadeInDown" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInDown;">Your chance: <span class="text-color-white"><span id="jackpot_user_chance">0</span>%</span></div>
+                        <div class="arrows arrows-left wow fadeIn" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeIn;"></div>
+                        <div class="jac-price wow fadeInDown" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInDown;">
+                            <span class="jac-price-num text-purple">$<span id="jackpot_bank">0</span></span>
+                            <span class="jac-price-text">JACKPOT</span>
+                        </div>
+                        <div class="arrows arrows-rigth wow fadeIn" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;"></div>
+                        <div class="jac-text jac-right wow fadeInDown" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInDown;">Your deposit: <span class="text-color-purple" id="jackpot_user_deposit">0</span>  <span class="text-color-white">$</span></div>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="chart">
+                        <div class="chart-inside wow flipInY" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: flipInY;">
+                            <div class="chart-inside-box" id="jackpotCircle"><canvas width="240" height="240"></canvas></div>
+                        </div>
+                        <div id="chart" class="chart-pie wow flipInY" data-wow-delay="0.1s" style="overflow: hidden; text-align: left; visibility: visible; animation-delay: 0.1s; animation-name: flipInY;"><div class="chartEmpty" id="chartContainer" style="height: 450px; width: 100%; background-color: black;"></div></div>
+                        <div class="chart-center">
+                            <!--<div class="chart-skins wow flipInY" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: flipInY;">
+                                <div class="chart-skins-text">SKINS</div>
+                                <div class="chart-skins-nums">
+                                    <span class="chart-skins-num-big" id="jackpot_items_count">0</span>/<span id="jackpot_items_max">0</span>
+                                </div>
+                            </div>
+                            <div class="chart-skins-sep wow zoomIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: zoomIn;"></div>-->
+                            <div class="chart-time wow flipInY" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: flipInY;zoom:1.75;line-height:120%;">
+                                <div class="chart-time-text">TIME</div>
+                                <div class="chart-time-num text-purple" id="jackpot_timer">0:00</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-deposite wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">min <span class="text-color-purple">$50</span>, max. <span class="text-color-white">2 deposit</span>/round</div>
+
+                    <div class="form-btn-center wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                        <a href="javascript://" data-action="login" class="form-btn form-btn-login gradient-purple"><span>LOGIN AND PLAY</span></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-center col-flex x-col-center">
+            <div class="box-content">
+
+                <div class="rulet">
+                    <div class="rulet-start">
+                        <div class="arrows arrows-left wow fadeIn" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeIn;"></div>
+                        <div class="round-via round-via-rulet">
+                            <span class="text-purple wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">ROUND HASH</span>
+                            <div class="round-via-hash wow fadeInUp" data-wow-delay="0.0s" style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;"><span id="jackpot_hash">9A4E6DC598B9A6DD4D97F44E131EC641395CEC1195B63313F792C82800841145 </span></a> <a href="fair.html" class="round-via-hash-info"><img src="style/img/info.png" alt=""></a></div>
+                        </div>
+                        <div class="arrows arrows-rigth wow fadeIn" data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: fadeIn;"></div>
+                    </div>
+                    <a class="text-purple jackpot_history_btn" href="javascript://" id="jackpot_show_history">
+                        <span>History</span>
+                    </a>
+                </div>
+           <div class="row">
+             <div class="col-md-12 col-sm-12 col-xs-12">
+                <div id="Carousel" class="carousel slide" data-ride="carousel" data-interval="">   
+                <!-- Carousel items -->
+                <div class="carousel-inner">
+                    
+                <div class="item active">
+                 <div class="row">
+                   <div class="col-md-2 col-xs-4"><a href="#" class="thumbnail"><img src="avatars/1.jpg" alt="Image"></a></div>
+                   <div class="col-md-2 col-xs-4"><a href="#" class="thumbnail"><img src="avatars/1.jpg" alt="Image"></a></div>
+                   <div class="col-md-2 col-xs-4"><a href="#" class="thumbnail"><img src="avatars/1.jpg" alt="Image"></a></div>
+                   <div class="col-md-2 col-xs-4"><a href="#" class="thumbnail"><img src="avatars/1.jpg" alt="Image"></a></div>
+                   <div class="col-md-2 col-xs-4"><a href="#" class="thumbnail"><img src="avatars/1.jpg" alt="Image"></a></div>
+                   <div class="col-md-2 col-xs-4"><a href="#" class="thumbnail"><img src="avatars/1.jpg" alt="Image"></a></div>
+                 </div><!--.row-->
+                </div><!--.item-->
+                 
+               
+                <div class="item">
+                 <div class="row">
+                    <div class="col-md-2 col-xs-4"><a href="#" class="thumbnail"><img src="avatars/1.jpg" alt="Image"></a></div>
+                    <div class="col-md-2 col-xs-4"><a href="#" class="thumbnail"><img src="avatars/1.jpg" alt="Image"></a></div>
+                    <div class="col-md-2 col-xs-4"><a href="#" class="thumbnail"><img src="avatars/1.jpg" alt="Image"></a></div>
+                    <div class="col-md-2 col-xs-4"><a href="#" class="thumbnail"><img src="avatars/1.jpg" alt="Image"></a></div>
+                    <div class="col-md-2 col-xs-4"><a href="#" class="thumbnail"><img src="avatars/1.jpg" alt="Image"></a></div>
+                    <div class="col-md-2 col-xs-4"><a href="#" class="thumbnail"><img src="avatars/1.jpg" alt="Image"></a></div>
+                 </div>
+                </div>
+         </div>
+       </div>
+     </div>
+    </div>
+             
+                <div class="rulet-bottom-border"></div>
+
+                <!--<div class="rulet-empty" id="jackpot_no_players">
+                    <p class="rulet-empty-text">There's no bets in pot. Be the first!</p>
+                    <a href="javascript://" onclick="$('#jackpot_deposit').click();return false;" class="rulet-empty-link">Deposit</a>
+                </div>-->
+                <div class="box-body" id="jackpot_has_players">
+                    <!-- ITEMLIST START -->
+                    <div class="weap_slide-content wow fadeInUp" id="jackpot_itembar" data-wow-delay="0.8s" style="display:none;visibility: visible; animation-delay: 0.8s; animation-name: fadeInUp;">
+                        <div class="weap_slide-arrow weap_slide-arrow-left gradient-purple light hover">
+                            <span><i>«</i></span>
+                        </div>
+                        <div class="weap_slide-body">
+                            <div class="swiper-container swiper-container-horizontal">
+                                <div class="swiper-wrapper" id="jackpot_itemlist"></div>
+                            </div>
+                        </div>
+                        <div class="weap_slide-arrow weap_slide-arrow-right gradient-purple light hover">
+                            <span><i>»</i></span>
+                        </div>
+                    </div>
+                    <!-- ITEMLIST END -->
+                    <!-- USERBETS START -->
+                    <div class="participants-list" id="jackpot_bets">
+                        <div data-color="2" class="participants-item color-2 wow fadeInUp  animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                            <a href="javascript://" class="participants-avatar">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="participants-name">
+                                ZoX deposited <span class="text-color-purple text-bold">$<span class="price_total">266</span></span> with chance <span class="text-color-purple text-bold"><span class="chance">56.47</span>%</span>
+                            </div>
+                            <div class="participants-dot"></div>
+                        </div>
+
+                        <div  data-color="1" class="participants-item color-1 wow fadeInUp  animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                            <a href="javascript://" class="participants-avatar">
+                                <img src="avatars/2.jpg" alt="">
+                            </a>
+                            <div class="participants-name">
+                                Bibabutzelbär deposited <span class="text-color-purple text-bold">$<span class="price_total">205</span></span> with chance <span class="text-color-purple text-bold"><span class="chance">43.52</span>%</span>
+                            </div>
+                            <div class="participants-dot"></div>
+                        </div>
+                        <div data-color="1" class="participants-item color-1 wow fadeInUp  animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                            <a href="javascript://" class="participants-avatar">
+                                <img src="avatars/3.jpg" alt="">
+                            </a>
+                            <div class="participants-name">
+                                Bibabutzelbär deposited <span class="text-color-purple text-bold">$<span class="price_total">205</span></span> with chance <span class="text-color-purple text-bold"><span class="chance">43.52</span>%</span>
+                            </div>
+                            <div class="participants-dot"></div>
+                        </div>
+                        <div data-color="1" class="participants-item color-1 wow fadeInUp  animated" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                            <a href="javascript://" class="participants-avatar">
+                                <img src="avatars/4.jpg" alt="">
+                            </a>
+                            <div class="participants-name">
+                                Bibabutzelbär deposited <span class="text-color-purple text-bold">$<span class="price_total">205</span></span> with chance <span class="text-color-purple text-bold"><span class="chance">43.52</span>%</span>
+                            </div>
+                            <div class="participants-dot"></div>
+                        </div>
+                    </div>
+                    <!-- USERBETS END -->
+                </div>
+            </div>
+
+        </div>
+        <div class="jackpot_game" style="display:none;">
+            <div class="panel panel-default" style="width:1180px;margin:40px auto;">
+                <div class="panel-heading sell_tabs">
+                    <div class="btn-group btn-group-sm">
+                        <a href="javascript://" id="jackpot_show_history" class="btn btn-primary">Game history &gt;</a>
+                    </div>
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-star"></span>&nbsp;Jackpot | GAME #<span id="jackpot_gameid">0</span></h3>
+                </div>
+                <div class="panel-body">
+                    <div class="jackpot_heading">
+                        <div class="jackpot_round_items">
+                            <div class="jackpot_round_items_circle" id="jackpot_round_items"></div>
+                            <div class="jackpot_round_timer">
+                                <div class="jackpot_round_timer_circle" id="jackpot_round_timer"></div>
+                                <div class="jackpot_bank_text"><span id="jackpot_bank">0</span>$</div>
+                                <div class="jackpot_round_timer_text"><span id="jackpot_timer"><span>0</span><span>0</span>:<span>0</span><span>0</span></span></div>
+                                <div class="jackpot_round_items_text"><span id="jackpot_items_count">0</span> / <span id="jackpot_items_max">0</span></div>
+                            </div>
+                        </div>
+                        <div id="jackpot_last_winner" class="jackpot_last_winner"></div>
+                    </div>
+                </div>
+                <div class="panel-footer jackpot_chances" id="jackpot_chances"></div>
+                <div class="panel-footer jackpot_carousel" id="jackpot_carousel"><div class="jackpot_carousel_items"></div></div>
+                <div class="panel-footer" style="text-align:right;position:relative;">
+                    <div style="position:absolute;left:30px;top:0px;bottom:0;padding-right:30px;font-size:18px;line-height:74px;border-right:1px solid #ddd;">Your chance: <span id="jackpot_user_chance">0</span>%&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Max items per user: 12</div>
+                    <a href="login.html" class="btn btn-success btn-lg">Login through Steam</a>
+                </div>
+            </div>
+            <div style="width:1180px;margin:auto;margin-top:40px;" id="jackpot_game_end"></div>
+            <div style="width:1180px;margin:auto;" id="jackpot_bets"></div>
+            <div style="width:1180px;margin:auto;" id="jackpot_hash"></div>
+        </div>
+        <div class="jackpot_history" style="display:none;">
+            <div class="panel panel-default" style="width:1180px;margin:40px auto;">
+                <div class="panel-heading sell_tabs">
+                    <div class="btn-group btn-group-sm">
+                        <a href="javascript://" id="jackpot_show_game" class="btn btn-primary">&lt; Back to game</a>
+                    </div>
+                    <h3 class="panel-title"><span class="glyphicon glyphicon-star"></span>&nbsp;Jackpot | GAME HISTORY</h3>
+                </div>
+                <div class="panel-body" id="jackpot_history"></div>
+            </div>
+        </div>
+        <div class="col-right col-flex x-col-right x-col-chat">
+            <div class="box-content box-direction-top chat-box">
+                <div class="box-header">
+                    <div class="chat-header">
+                        <div class="chat-header-icon wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                            <img src="style/img/chat-icon.png" class="ico-glow" alt="">
+                        </div>
+                        <div class="chat-header-center">
+                            <div class="chat-header-title text-purple wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">Chat</div>
+                            <div class="chat-header-online text-green wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;"><span id="online_count">68</span> online</div>
+                        </div>
+                        <div class="chat-header-arrow wow fadeInUp chat-open-close" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-body chat-body" id="chat">
+                    <div class="chat-list">
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="1478113041" data-id="723DFD7FD0FCDD9805D60C526250093AF299CFB50FD6087247FDD0549C35A266">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">jjoker98rus</div>
+                                <div class="chat-list-text">
+                                    <p>Wow</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">03:59:29</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="2809753609" data-id="2878CF062E7BF89F901EE6CB66F02E809A272BA33F1876889ED405993F478B14">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/2.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">Colde</div>
+                                <div class="chat-list-text">
+                                    <p>cool i will use your moms creditcard from last night :)</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:00:04</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="6374091468" data-id="56B5789668710DF3A239C396843B3A1CFCEF7F1364DA2EF6A262C6A3493C9724">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/3.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">kIss my Ass! &lt;kmA&gt;</div>
+                                <div class="chat-list-text">
+                                    <p>is this site ok?</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:00:39</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="6834794447" data-id="6B25417D2ECED72F0C0BFAB77E72D8E07B7BD242FEC83D76092995F5E5AB74EF">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/4.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">Yasuo</div>
+                                <div class="chat-list-text">
+                                    <p>I'll check your message in 5min</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:01:14</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="4689224443" data-id="CA5E585687E147BA0004AD1B264CA4CFBE7190CE2E543670C9593752D60A79FC">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">grawolf2</div>
+                                <div class="chat-list-text">
+                                    <p>Geldi bu swfer</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:02:59</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="1751909594" data-id="FE8A65C88E0DF195BC07C91A692C8F61AD8DF2FEBD98EDBCF637B87810ED207A">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">FROST-187</div>
+                                <div class="chat-list-text">
+                                    <p>apagina ascquerosa</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:03:34</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="1955273177" data-id="0833F13E40E3D412BF6498D5C585D0B120BE80F856D10909CCE44CB5244DE936">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">Okaycups</div>
+                                <div class="chat-list-text">
+                                    <p>This is a cool site: D</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:04:09</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="3734935462" data-id="D8B3E3A8EC926CAF91682A9CB31B5C407C57F2C8270A503C561741A3725F595A">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">Gizmozz</div>
+                                <div class="chat-list-text">
+                                    <p>please don't ban my</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:05:54</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="1128831003" data-id="1CA12F74BB5D7C99070AEB4C60674DC316ADCB15165D5778D368DA026CA1FDB2">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">djmadal</div>
+                                <div class="chat-list-text">
+                                    <p>The big bet</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:06:29</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="1911633087" data-id="ECC37E7026F344C367092808EBA7A8E0D76B75427A9B9D589C93DD2B014876FD">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">Axon</div>
+                                <div class="chat-list-text">
+                                    <p>nope</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:07:40</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="4407456851" data-id="E3642E4194A7288D60990772AC2EB68272B2E58D6C07A629597256EBD97F1F23">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">yoyoluciano</div>
+                                <div class="chat-list-text">
+                                    <p>ZLenk why urban tho you love me?</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:08:15</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="7252926289" data-id="63D9580BA4A07FC991FE4EF323BE20B0EE9B064D8998BF7D4F7E0BF2B5598267">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">Shadou Wolf</div>
+                                <div class="chat-list-text">
+                                    <p>You soo unlucky ;/</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:10:00</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="9546057214" data-id="92528CC950DD956322BE4A161834BDC7A99BE5D3B539BCAA039AFC29216B42F4">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">SturmSchaden</div>
+                                <div class="chat-list-text">
+                                    <p>Get roasted by the man himself</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:12:20</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="4568223450" data-id="0FA8A93B3CCFF0CC1F93AB32C8705B5DBE81DF1009F732DA8867953527F58683">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">evintchar</div>
+                                <div class="chat-list-text">
+                                    <p>I'm the most unlucky player on the site -_-</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:14:05</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="2474777733" data-id="03BE970B6CCB9D319AAC0A0F5E5760C412781C1E351D337DF664F2D9D7864C34">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">Ха ха шка  116РУС</div>
+                                <div class="chat-list-text">
+                                    <p>I Win agien wtfff</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:14:40</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="2779792973" data-id="FE9D384BA1E2A32B9B66E6C5C15EAB4C9FC79E9C8E803578D3406166CBB8C7D6">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">Jamizle</div>
+                                <div class="chat-list-text">
+                                    <p>How are the bets?</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:15:50</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="2463884983" data-id="8583D47C6FF454652F58F059E9502E32D7BC8BF9F376E0917AD55BA0C9E1F0DE">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">Mudmaniac</div>
+                                <div class="chat-list-text">
+                                    <p>I stupid -_- I lost all my money ...</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:16:25</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="1712015299" data-id="3D5BA96FDAB3B1B2916421195CA03CB6C373421968B210AB2D45F780FD0CB768">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">Zubzero382</div>
+                                <div class="chat-list-text">
+                                    <p>Rich Bitch:D</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:17:00</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="9831468923" data-id="0511C780EFF93D720D40EF0D2B38AE17A84623F4093B2151A9577781F5CC280E">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">GeneralJordy</div>
+                                <div class="chat-list-text">
+                                    <p>Host if i win one more Ill give u and vid 300</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:17:35</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="7315576346" data-id="B4A658C51899416CB9CA0EF23A97547653B257E4ADB27F96F704FCC998D96807">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">Daveight</div>
+                                <div class="chat-list-text">
+                                    <p>Hey Marta, how much money did you win today?</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:18:10</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="5562148066" data-id="52BE3EE32DD59BFAD3D6803002A4623CBF34CA33B89FDB52A1B0BEEB6EBD0E57">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">smile</div>
+                                <div class="chat-list-text">
+                                    <p>Wow</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:18:45</span>
+                            </div>
+                        </div>
+
+                        <div class="chat-list-item animated fadeInUp chat-list-item-admin-0" data-userid="6374091468" data-id="7B226880FF1288848E47630302902E6B65C5B58ACA68BBD2FF7005A1380B3FEC">
+                            <a href="javascript://" class="chat-list-ava">
+                                <img src="avatars/1.jpg" alt="">
+                            </a>
+                            <div class="chat-list-body">
+                                <div class="chat-list-name">kIss my Ass! &lt;kmA&gt;</div>
+                                <div class="chat-list-text">
+                                    <p>need to buy bitcoin and play more)</p>
+                                </div>
+                            </div>
+                            <div class="chat-list-control">
+                                <span class="chat-list-time">04:19:20</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="chat-write wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                        <button type="button" data-action="login" class="form-btn chat-write-btn gradient-purple light"><span>SIGN IN</span></button>
+                    </div>
+                </div>
+            </div>
+            <div class="box-content box-direction-bottom">
+                <div class="box-header box-header-simple">
+                    <div class="box-header-simple-ico wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
+                        <img src="style/img/gift-icon.png" class="ico-glow" alt="">
+                    </div>
+                    <h3 class="box-header-simple-title text-purple wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">GIVEAWAY</h3>
+                </div>
+                <div class="gift-body">
+                    <div class="gift-subject">
+                        <div class="gift-subject-img wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
+                            <img src="bitcoins2_large.jpg" style="height:70px;margin:8px;" alt="">
+                        </div>
+                        <div class="arrows arrows-left wow fadeIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeIn;"></div>
+                        <div class="gift-subject-text">
+                            <div class="gift-subject-name wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">BitCoin</div>
+                            <div class="gift-subject-price text-purple wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">0.2 BTC</div>
+                        </div>
+                    </div>
+
+                    <div class="form-btn-center wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                        <a href="#" target="_blank" class="form-btn  gradient-purple light"><span>participate</span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- FOOTER START -->
+    <footer class="section-footer blur-content">
+        <div class="footer-content">
+            <div class="footer-left wow fadeInUp" data-wow-delay="0.3s">
+                <div class="corp"><span class="corp-name">SILPRE</span> © 2018 All rights reserved  </div>
+                <div class="arrow"></div>
+                <ul class="social">
+                    <li>
+                        <a href="#" target="_blank"><img src="style/img/twitter.png" alt="Twitter"></a>
+                    </li>
+                </ul>
+            </div>
+            <div class="footer-right wow fadeInUp" data-wow-delay="0.2s">
+                <ul class="footer-menu">
+                    <li>
+                        <a href="fair.html">Provably Fair</a>
+                    </li>
+                    <li>
+                        <a href="tos.html">Terms Of Service</a>
+                    </li>
+                    <li>
+                        <a href="login.html">Support</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+    <!-- FOOTER END -->
+    <div style="display:none;">
+        <div id="template_jackpot_betview">
+            <div data-userid="$VAR_1$" data-color="$VAR_7$" class="participants-item color-$VAR_7$ wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
+                <a href="javascript://" class="participants-avatar">
+                    <img src="%24VAR_3%24.html" alt="">
+                </a>
+                <div class="participants-name">
+                    $VAR_2$ deposited <span class="text-color-purple text-bold">$<span class="price_total">$VAR_4$</span></span> with chance <span class="text-color-purple text-bold"><span class="chance">---</span>%</span>
+                </div>
+                <div class="participants-dot"></div>
+            </div>
+        </div>
+        <div id="template_jackpot_hash_block">
+            <div class="alert alert-info" style="position:relative;min-height:64px;">
+                <div style="position:absolute;left:12px;top:12px;font-size:48px;line-height:48px;"><span class="glyphicon glyphicon-play-circle"></span></div>
+                <div style="padding-left:60px;"><b>FAIR GAME:</b><br />Hash: $VAR_1$</div>
+            </div>
+        </div>
+        <div id="template_jackpot_winner_block">
+            <div class="alert alert-success" style="position:relative;min-height:64px;">
+                <div style="position:absolute;left:12px;top:12px;font-size:48px;line-height:48px;"><span class="glyphicon glyphicon-ok-circle"></span></div>
+                <div style="padding-left:60px;"><b>WINNER IS:</b> $VAR_2$ ($VAR_4$% CHANCE)<br />ROUND NUMBER: $VAR_6$</div>
+            </div>
+        </div>
+        <div id="template_jackpot_last_winner">
+            <div class="jackpot_last_heading">LAST WINNER</div>
+            <div class="jackpot_last_avatar thumbnail" style="background-image:url('%24VAR_3%24.html');"></div>
+            <div class="jackpot_last_info"><div class="jackpot_last_username">$VAR_2$</div>Won <b>$VAR_4$$</b> with $VAR_5$% chance!</div>
+        </div>
+        <div id="template_jackpot_carousel_user">
+            <li data-chance="$VAR_2$" data-avatar="$VAR_1$"><img style="width:57px;height: 57px;" src="%24VAR_1%24.html" alt=""></li>
+        </div>
+        <div id="template_info_block">
+            <div class="alert alert-info">$VAR_1$</div>
+        </div>
+        <div id="template_support_ticketview_message">
+            <div data-userid="$VAR_1$" class="suport-massage wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                <div class="suport-massage-ava gradient-purple">
+                    <div>
+                        <img src="%24VAR_2%24.html" alt="">
+                    </div>
+                </div>
+                <div class="suport-massage-body">
+                    <div class="suport-massage-top">
+                        <a href="#" class="suport-massage-name text-purple">$VAR_4$</a>
+                        <span class="suport-massage-date">$VAR_5$ <span class="text-color-white">$VAR_6$</span></span>
+                    </div>
+                    <div class="suport-massage-text">
+                        <p>$VAR_3$</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="template_giveaway_user">
+            <div class="panel panel-default giveaway_user">
+                <div class="panel-body">
+                    <div class="giveaway_user_avatar" style="background-image:url('%24VAR_2%24.html')"></div>
+                    <div class="giveaway_user_username"></div>
+                </div>
+            </div>
+        </div>
+        <div id="template_coinflip_game">
+            <div class="coin-item wow fadeInUp" data-gameid="$VAR_1$" data-price="$VAR_5$" data-joinable="1" data-wow-delay="0.0s" style="visibility: visible; animation-delay: 0s; animation-name: fadeInUp;">
+                <div class="col-coin-player coin-item-col coin-item-col-players">
+                    <div class="coin-item-players-avatars empty">
+                        <div class="coin-item-players-ico">
+                            <img src="style/img/icons/%24VAR_6%24.html" alt="">
+                        </div>
+                        <a href="javascript://" class="coin-item-players-ava">
+                            <img src="%24VAR_3%24.html" alt="">
+                        </a>
+                    </div>
+                    <div class="coin-item-players-items"></div>
+                </div>
+                <div class="col-coin-items coin-item-col coin-item-col-items">
+                    <div class="coin-price">
+                        <div class="coin-price-num text-purple">$$VAR_5$</div>
+                    </div>
+
+                </div>
+                <div class="col-coin-total coin-item-col coin-item-col-total">
+
+                    <div class="coin-percent">
+                        <div class="coin-percent-circle purple"><canvas width="42" height="42"></canvas></div>
+                        <div class="coin-percent-num text-purple">10</div>
+                    </div>
+                </div>
+                <div class="col-coin-end coin-item-col coin-item-col-end">
+
+                </div>
+            </div>
+        </div>
+        <div id="template_coinflip_game_full">
+            <div class="coin-item wow fadeInUp" data-gameid="$VAR_1$" data-price="$VAR_9$" data-joinable="0" data-wow-delay="0.0s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
+                <div class="col-coin-player coin-item-col coin-item-col-players">
+                    <div class="coin-item-players-avatars coin-winner-avatars">
+                        <a href="javascript://" class="coin-item-players-ava purple">
+                            <img src="%24VAR_3%24.html" alt="">
+                        </a>
+                        <div class="coin-item-players-vs">VS</div>
+                        <a href="javascript://" class="coin-item-players-ava">
+                            <img src="%24VAR_7%24.html" alt="">
+                        </a>
+                    </div>
+                    <div class="coin-item-players-items"></div>
+                </div>
+                <div class="col-coin-items coin-item-col coin-item-col-items">
+                    <div class="coin-price">
+                        <div class="coin-price-num text-purple">$$VAR_9$</div>
+                    </div>
+
+                </div>
+                <div class="col-coin-total coin-item-col coin-item-col-total">
+                    <div class="coin-percent">
+                        <div class="coin-percent-circle green"><canvas width="42" height="42"></canvas></div>
+                        <div class="coin-percent-num text-green">10</div>
+                    </div>
+                </div>
+                <div class="col-coin-end coin-item-col col-coin-end-item">
+                    <div class="coin-winner-btns">
+                    </div>
+                    <div class="coin-winner">
+
+                        <div class="coin-winner-ico" style="display: none;">
+                            <img src="style/img/icons/%24VAR_11%24.html" alt="">
+                        </div>
+
+                        <div class="coin-winner-ava">
+                            <img src="style/img/icons/ava.png" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="template_jackpot_history">
+            <div class="coin-item coin-item-history" data-gameid="$VAR_1$">
+                <div class="col-coin-player coin-item-col coin-item-col-players pix-win-coin-col-1 pix-win-coin-col-1-win">
+                    <div class="coin-winner-position">
+                        <img src="style/img/trophy.png" class="ico-glow" alt="">
+                        <span style="display:none;" class="coin-winner-position-num"><span class="text-purple">#</span> 115</span>
+                    </div>
+                </div>
+                <div class="col-coin-items coin-item-col coin-item-col-items pix-win-coin-col-2 pix-win-coin-col-2-win">
+
+                </div>
+                <div class="col-coin-winner">
+                    <a href="javascript://" class="round-winner-avatar gradient-purple">
+                        <span>
+                            <img src="%24VAR_3%24.html" alt="">
+                        </span>
+                    </a>
+                    <div class="round-user">
+                        <span class="round-user-name">$VAR_2$</span>
+                        <span class="round-user-deposite">
+                            Chance <span class="text-color-purple text-bold">$VAR_5$%</span><br>
+                            Summary win  <span class="text-color-purple text-bold">$VAR_4$$</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-coin-hash">
+                    <span class="coin-hash coin-hash-center">
+                        Hash: $VAR_8$ <a href="javascript://" class="round-via-hash-info pix-coin-hash-info"><img src="style/img/info.png" alt=""></a> | Number: <span class="text-color-purple">$VAR_9$</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="template_coinflip_history">
+            <div class="coin-item coin-item-history">
+                <div class="col-coin-player coin-item-col coin-item-col-players pix-win-coin-col-1">
+                    <div class="coin-item-players-avatars coin-item-players-avatars-full coin-winner-avatars">
+                        <a href="javascript://" class="coin-item-players-ava purple">
+                            <img src="%24VAR_11%24.html" alt="">
+                        </a>
+                        <div class="coin-item-players-vs">VS</div>
+                        <a href="javascript://" class="coin-item-players-ava">
+                            <img src="%24VAR_12%24.html" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-coin-items coin-item-col coin-item-col-items pix-win-coin-col-2">
+
+                </div>
+                <div class="col-coin-total coin-item-col coin-item-col-total pix-win-coin-col-3">
+                    <div class="coin-price">
+                        <div class="coin-price-num text-purple">$VAR_5$$</div>
+
+                    </div>
+                </div>
+                <div class="col-coin-end coin-item-col col-coin-end-item pix-win-coin-col-4">
+                    <div class="coin-winner">
+
+                        <div class="coin-winner-ico">
+                            <img src="style/img/icons/%24VAR_1%24.html" alt="">
+                        </div>
+
+                        <a href="javascript://" class="coin-winner-ava">
+                            <img src="%24VAR_3%24.html" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-coin-hash">
+                    <span class="coin-hash">
+                        Hash: $VAR_8$ | Number: <span class="text-color-purple">$VAR_9$</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div id="template_chatmessage">
+            <div class="chat-list-item animated fadeInUp chat-list-item-admin-$VAR_5$" data-userid="$VAR_1$" data-id="$VAR_7$">
+                <a href="javascript://" class="chat-list-ava">
+                    <img src="%24VAR_3%24.html" alt="">
+                </a>
+                <div class="chat-list-body">
+                    <div class="chat-list-name">$VAR_2$</div>
+                    <div class="chat-list-text">
+                        <p>$VAR_4$</p>
+                    </div>
+                </div>
+                <div class="chat-list-control">
+                    <span class="chat-list-time">$VAR_6$</span>
+                </div>
+            </div>
+        </div>
+        <div id="template_modal">
+            <div class="blocker" id="$VAR_1$" style="display:none;">
+                <div class="modal $VAR_4$" style="display: inline-block;">
+                    <div class="modal-header text-purple">$VAR_2$</div>
+                    <div class="modal-body">$VAR_3$</div>
+                    <a href="#close-modal" rel="modal:close" class="close-modal">Close</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    <script>
+      $(document).ready(function() {
+        $('#Carousel').carousel({
+        interval: 1000
+       })
+     });
+   </script>
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
+    <script src="js/app7b30.js?v=4"></script>
+    <script>
+
+        const USER_ID = '0';
+        const TOKEN = 'd06bee39f0ed4587910bf8e46fe0003f';
+        const ROOM = 'jackpot';
+
+    </script>
+</body>
+</html>
