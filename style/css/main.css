@@ -71,3 +71,10 @@ body {
 	height:70px;
 	margin:8px
 }
+
+.header-center {
+    display: -ms-flexbox;
+    display: flex;
+    height: 100%;
+    margin-top: 5px;
+}

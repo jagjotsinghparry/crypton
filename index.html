@@ -8,15 +8,20 @@
     <meta name="keywords" content="" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="robots" content="index, follow" />
-    <link rel="stylesheet" href="style/css/main.css" />
+    <meta name="robots" content="index, follow"/>
+    <link rel="stylesheet" href="style/css/main.css"/>
+    <link rel="stylesheet" href="style/css/animate.css"/>
+    <link rel="stylesheet" href="style/css/hamburgers.css"/>
     <link rel="stylesheet" href="style/css/app.css" />
+    <link rel="stylesheet" href="style/css/swiper.min.css" />
     <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script>
+
+<script>
 window.onload = function () {
         CanvasJS.addColorSet("greenShades",
                 [//colorSet Array
@@ -37,15 +42,19 @@ window.onload = function () {
             backgroundColor: "#1f1d2f",
             colorSet: "greenShades",
 
+           
+
     data: [{
 
         type: "doughnut",
-        startAngle: 60,
-        cutoutPercentage: 30,
-        //innerRadius: 60,
+        startAngle:  60,
+        cutoutPercentage: 10,
+        percentageInnerCutout : 50,
+         // percentageInnerCutout: 70,
+        innerRadius: 60,
         indexLabelFontSize: 17,
         // indexLabel: "{label} - #percent%",
-         toolTipContent: "<b>{label}:</b> {y} (#percent%)",
+        toolTipContent: "<b>{label}:</b> x{y} (#percent%)",
         dataPoints: [
             { y: 20, label: "" },
             { y: 20, label: "" },
@@ -59,6 +68,33 @@ chart.render();
 
 }
 </script>
+
+<!-- <script type="text/javascript">
+    $(document).ready(function(){
+        var ctx =$("#chartContainer").get(0).getContext("2d");
+      var data=[
+        {
+            value:270,
+            color:"red",
+            label:"java"
+        },
+        
+        {
+            value:50,
+            color:"green",
+            label:"java"
+        },
+        
+        {
+            value:30,
+            color:"yellow",
+            labelkey: "value", "java"
+        }
+        ];
+        var chart = new chart(ctx).Doughnut(data);
+
+    })
+</script> -->
 
 </head>
 <body class="jackpot">
@@ -151,6 +187,36 @@ chart.render();
                     </div>
                 </div>
                 <div class="box-body">
+                <div class="chart">
+                    <div class="chart-inside wow flipInY" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: flipInY;">
+                        <div class="chart-inside-box" id="jackpotCircle"><canvas width="240" height="240"></canvas></div>
+                    </div>
+
+                    <div id="chart" class="chart-pie wow flipInY" data-wow-delay="0.1s" style="overflow: hidden; text-align: left; visibility: visible; animation-delay: 0.1s; animation-name: flipInY;"><div class="amcharts-main-div" style="position: relative;"><div class="amcharts-chart-div" style="overflow: hidden; position: relative; text-align: left; width: 450px; height: 450px; padding: 0px;"><svg version="1.1" style="position: absolute; width: 450px; height: 450px; top: 0px; left: -0.203125px;"><desc>JavaScript chart by amCharts 3.21.12</desc><g><path cs="100,100" d="M0.5,0.5 L449.5,0.5 L449.5,449.5 L0.5,449.5 Z" fill="#FFFFFF" stroke="#000000" fill-opacity="0" stroke-width="1" stroke-opacity="0"></path></g><g></g><g></g><g></g><g></g><g></g><g><g aria-label="FROST-187: 26.34% 26.33 "><path cs="1000,1000" d=" M85.49242408571399,236.7318482141447 L9.759740017958734,243.10056581610894 A216,216,0,0,1,225.00000000000014,9 L225.00000000000009,85 A140,140,0,0,0,85.49242408571399,236.7318482141447 Z" fill="rgb(255, 40, 44)" stroke="#1f1d2f" stroke-width="2" stroke-opacity="1" fill-opacity="1"></path></g><g aria-label="ZoX: 3.86% 3.86 "><path cs="1000,1000" d=" M92.39505942736207,269.89910617960186 L20.40952025935863,294.2729066771 A216,216,0,0,1,9.759740017958734,243.10056581610894 L85.49242408571399,236.7318482141447 A140,140,0,0,0,92.39505942736207,269.89910617960186 Z" fill="rgb(254, 190, 28)" stroke="#1f1d2f" stroke-width="2" stroke-opacity="1" fill-opacity="1"></path></g><g aria-label="Lightdwellers: 17.90% 17.9 "><path cs="1000,1000" d=" M208.32307806397853,364.0031664198332 L199.2698918701383,439.4620281905998 A216,216,0,0,1,20.40952025935863,294.2729066771 L92.39505942736207,269.89910617960186 A140,140,0,0,0,208.32307806397853,364.0031664198332 Z" fill="rgb(26, 160, 244)" stroke="#1f1d2f" stroke-width="2" stroke-opacity="1" fill-opacity="1"></path></g><g aria-label="jimmy'1893: 26.48% 26.47 "><path cs="1000,1000" d=" M225,85 L225,9 A216,216,0,0,1,440.0726786170213,244.9935717794362 L364.3989583628842,237.95879652370866 A140,140,0,0,0,225,85 Z" fill="rgb(22, 253, 78)" stroke="#1f1d2f" stroke-width="2" stroke-opacity="1" fill-opacity="1"></path></g><g aria-label="darkday2003: 25.43% 25.42 "><path cs="1000,1000" d=" M364.3989583628842,237.95879652370866 L440.0726786170213,244.9935717794362 A216,216,0,0,1,199.2698918701383,439.4620281905998 L208.32307806397853,364.0031664198332 A140,140,0,0,0,364.3989583628842,237.95879652370866 Z" fill="rgb(253, 93, 21)" stroke="#1f1d2f" stroke-width="2" stroke-opacity="1" fill-opacity="1"></path></g></g><g></g><g></g><g></g><g></g><g></g><g><g></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg><a href="http://www.amcharts.com" title="JavaScript charts" target="_self" style="position: absolute; text-decoration: none; color: rgb(0, 0, 0); font-family: Verdana; font-size: 11px; opacity: 0.7; display: block; left: 5px; top: 5px;">JS chart by amCharts</a></div></div></div>
+
+                    <div class="chart-center">
+                        <!--<div class="chart-skins wow flipInY" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: flipInY;">
+                            <div class="chart-skins-text">SKINS</div>
+                            <div class="chart-skins-nums">
+                                <span class="chart-skins-num-big" id="jackpot_items_count">0</span>/<span id="jackpot_items_max">0</span>
+                            </div>
+                        </div>
+                        <div class="chart-skins-sep wow zoomIn" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: zoomIn;"></div>-->
+                        <div class="chart-time wow flipInY" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: flipInY; zoom: 1.75; line-height: 120%;">
+                            <div class="chart-time-text">TIME</div>
+                            <div class="chart-time-num text-purple" id="jackpot_timer"><span>0</span><span>0</span>:<span>1</span><span>8</span></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chart-deposite wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">min <span class="text-color-purple">$50</span>, max. <span class="text-color-white">2 deposit</span>/round</div>
+                
+                <div class="form-btn-center wow fadeInUp" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                    <a href="javascript://" id="jackpot_deposit" class="form-btn form-btn-login gradient-purple"><span>Deposit</span></a>
+                </div>
+            </div>
+              
+                <!-- <div class="box-body">
                     <div class="chart">
                         <div class="chart-inside wow flipInY" data-wow-delay="0.1s">
                             <div class="chart-inside-box" id="jackpotCircle"><canvas width="240" height="240"></canvas></div>
@@ -171,7 +237,7 @@ chart.render();
                     <div class="form-btn-center wow fadeInUp" data-wow-delay="0.1s">
                         <a href="#" data-action="login" class="form-btn form-btn-login gradient-purple"><span>LOGIN AND PLAY</span></a>
                     </div>
-                </div>
+                </div> -->
             </div>
 
         </div>
@@ -763,6 +829,10 @@ chart.render();
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/swiper.min.js"></script>
+    <script src="js/circle-progress.js"></script>
+    <script src="js/circle-progress.min.js"></script>
     <script>
 
         const USER_ID = '0';
