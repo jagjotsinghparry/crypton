@@ -14,12 +14,13 @@
     <link rel="stylesheet" href="style/css/hamburgers.css"/>
     <link rel="stylesheet" href="style/css/app.css" />
     <link rel="stylesheet" href="style/css/swiper.min.css" />
-    <link rel="stylesheet" href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"> 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
 
 <script>
 window.onload = function () {
@@ -69,32 +70,6 @@ chart.render();
 }
 </script>
 
-<!-- <script type="text/javascript">
-    $(document).ready(function(){
-        var ctx =$("#chartContainer").get(0).getContext("2d");
-      var data=[
-        {
-            value:270,
-            color:"red",
-            label:"java"
-        },
-        
-        {
-            value:50,
-            color:"green",
-            label:"java"
-        },
-        
-        {
-            value:30,
-            color:"yellow",
-            labelkey: "value", "java"
-        }
-        ];
-        var chart = new chart(ctx).Doughnut(data);
-
-    })
-</script> -->
 
 </head>
 <body class="jackpot">
@@ -121,29 +96,7 @@ chart.render();
                     <span class="hamburger-inner"></span>
                 </span>
             </button>
-            <div class="col-right x-col-header-right">
-       <!--  <div class="header-right">
-                        <div class="user-box">
-                <div class="user-box-bg">
-                    <div class="user-box-selector">
-                        <div class="user-box-selector-ava">
-                            <img src="/avatars/default.png" alt="">
-                        </div>
-                        <div class="user-box-selector-name" style="white-space: nowrap;text-overflow: ellipsis;">[<span id="balance">0.00</span>$] silpree</div>
-                        <div class="user-box-selector-drop"></div>
-                    </div>
-                </div>
-
-                <div class="user-box-drop" style="text-align: left; padding-left: 20px; padding-right: 20px; display: block;">
-                    <a href="/profile"><i class="fa fa-user"></i> Edit info</a>
-                    <a href="/profile"><i class="fa fa-arrow-circle-down"></i> Deposit</a>
-                    <a href="/profile"><i class="fa fa-arrow-circle-up"></i> Withdraw</a>
-                    <div class="user-box-drop-sep"></div>
-                    <a href="/logout"><i class="fa fa-sign-out"></i> Logout</a>
-                </div>
-            </div>
-        </div> -->
-    </div>
+           
             <div class="col-right x-col-header-right">
                 <div class="header-right">
                     <a href="#" data-action="login" class="btn-steam gradient-steam wow fadeInDown" data-wow-delay="0.5s">
@@ -215,32 +168,10 @@ chart.render();
                     <a href="javascript://" id="jackpot_deposit" class="form-btn form-btn-login gradient-purple"><span>Deposit</span></a>
                 </div>
             </div>
-              
-                <!-- <div class="box-body">
-                    <div class="chart">
-                        <div class="chart-inside wow flipInY" data-wow-delay="0.1s">
-                            <div class="chart-inside-box" id="jackpotCircle"><canvas width="240" height="240"></canvas></div>
-                        </div>
-                        <div id="chart" class="chart-pie wow flipInY" data-wow-delay="0.1s">
-                            <div class="chartEmpty" id="chartContainer" style="height: 450px; width: 100%; background-color: black;"></div></div>
-                        <div class="chart-center">
-                        
-                            <div class="chart-time wow flipInY jackpot_timer" data-wow-delay="0.5s">
-                                <div class="chart-time-text">TIME</div>
-                                <div class="chart-time-num text-purple" id="jackpot_timer">0:00</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="chart-deposite wow fadeInUp" data-wow-delay="0.3s">min <span class="text-color-purple">$50</span>, max. <span class="text-color-white">2 deposit</span>/round</div>
-
-                    <div class="form-btn-center wow fadeInUp" data-wow-delay="0.1s">
-                        <a href="#" data-action="login" class="form-btn form-btn-login gradient-purple"><span>LOGIN AND PLAY</span></a>
-                    </div>
-                </div> -->
-            </div>
-
+             
         </div>
+
+    </div>
         <div class="col-center col-flex x-col-center">
             <div class="box-content">
 
@@ -258,10 +189,10 @@ chart.render();
                     </a>
                 </div>
            <div class="row">
-             <div class="col-md-12 col-sm-12 col-xs-12">
-                <div id="Carousel" class="carousel slide" data-ride="carousel" data-interval="1000">   
+	<div class="col-md-12 col-sm-12 col-xs-12">
+        <div id="Carousel" class="carousel slide" data-ride="carousel" data-interval="1000">   
                 <!-- Carousel items -->
-                <div class="carousel-inner">
+            <div class="carousel-inner">
                     
                 <div class="item active">
                     <ul>
@@ -285,7 +216,7 @@ chart.render();
                 </div><!--.item-->
                  
                
-                <div class="item">
+            <div class="item">
                 <ul>
                     <li><a href="#"><img src="avatars/1.jpg" alt="Image" class="responsive" height="57px" width="57px"></a></li>
                     <li><a href="#"><img src="avatars/1.jpg" alt="Image" class="responsive" height="57px" width="57px"></a></li>
@@ -818,27 +749,19 @@ chart.render();
     </footer>
     <!-- FOOTER END -->
     <script type="text/javascript">
-    <script>
+
       $(document).ready(function() {
         $('#Carousel').carousel({
         interval: 1000
        })
      });
    </script>
-    <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-modal/0.9.1/jquery.modal.min.js"></script>
-    <script src="js/app.js"></script>
+	<script src="js/chart.js"></script>
+    
     <script src="js/swiper.js"></script>
-    <script src="js/swiper.min.js"></script>
     <script src="js/circle-progress.js"></script>
-    <script src="js/circle-progress.min.js"></script>
-    <script>
-
-        const USER_ID = '0';
-        const TOKEN = 'd06bee39f0ed4587910bf8e46fe0003f';
-        const ROOM = 'jackpot';
-
-    </script>
 </body>
 </html>
